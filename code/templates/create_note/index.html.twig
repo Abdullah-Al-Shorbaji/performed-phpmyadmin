@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CreateNoteController!{% endblock %}
+
+{% block body %}
+
+<div class="container-sm mt-5">
+    {{ form_start(form,{'method': 'POST', 'action': path('notesCreatePost')}) }}
+        <div class="mb-3">
+            {{ form_row(form.id, {'type': 'hidden'}) }}
+        </div>    
+        
+        <div class="mb-3">
+          {{ form_row(form.title) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_row(form.text) }}
+        </div>                
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+      {{ form_end(form) }}
+</div>
+{% endblock %}

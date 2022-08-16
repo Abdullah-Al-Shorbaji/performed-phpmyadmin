@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello NoteController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Note API</h1>
+
+    
+        <div class="container-sm mt-5">
+        <h2>Result limitation and sorting</h2>
+            {{ form_start(form,{'method': 'POST', 'action': path('NotePost')}) }}  
+                
+                <div class="mb-3">
+                {{ form_row(form.text) }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form_row(form.SortingBy, {'type': 'radio'}) }}
+                </div>                          
+
+                <div class="mb-3">
+                    {{ form_row(form.SortingDirection, {'type': 'radio'}) }}
+                </div> 
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            {{ form_end(form) }}
+        </div>
+    <br><br>
+    <a href="{{ path('notesCreate') }}">Add new note</a>
+    <br>
+    My Notes:
+    <br>{<br>
+        {% for note in newNotes%}
+            &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                ID:&nbsp;{{ note.id }},<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                Title:&nbsp;{{ note.title }},<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                Text:&nbsp;{{ note.text }},<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                Time created:
+                &nbsp;{{ note.timeCreated|format_datetime('full', 'short', locale='en') }},
+
+            <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;},<br>
+            <a href="{{ path('noteShow', {'id':note.id}) }}">Show note {{note.id}}</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{{ path('NoteUpdate', {'id':note.id}) }}">Update note {{note.id}}</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{{ path('postNoteDelete', {'id':note.id}) }}">Delete note {{note.id}}</a>
+        <br>
+        {% endfor %}
+    }
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+# Abdullah: Here is homepage route
+Home:
+    path: /
+    controller: App\Controller\HomeController::index
+    methods: GET
+
+# Abdullah: Here is route to get all-notes' page
+Note:
+    path: /notes
+    controller: App\Controller\NoteController::index
+    methods: GET
+
+# Abdullah: Here is route to perform limitation and sorting on the notes' page
+NotePost:
+    path: /notes
+    controller: App\Controller\NoteController::NotePost
+    methods: POST
+
+# Abdullah: Here is route to get note's creation page
+notesCreate:
+    path: /notes/create
+    controller: App\Controller\NoteController::getCreate
+    methods: GET
+
+# Abdullah: Here is route of to post note's creation
+notesCreatePost:
+    path: /notes/create/post
+    controller: App\Controller\NoteController::postCreate
+    methods: POST
+
+# Abdullah: Here is route to get note's updating page
+NoteUpdate:
+    path: /notes/update/{id}
+    controller: App\Controller\NoteController::getUpdate
+    methods: GET
+
+# Abdullah: Here is route of to post note's updating
+NoteUpdatePost:
+    path: /notes/update/{id}
+    controller: App\Controller\NoteController::postUpdate
+    methods: POST
+
+# Abdullah: Here is route of to post note's deletion
+postNoteDelete:
+    path: /notes/delete/{id}
+    controller: App\Controller\NoteController::DeletePost
+    methods: [GET, DELETE]
+
+# Abdullah: Here is route to get the page of a specific note
+noteShow:
+   path: /notes/show/{id}
+   controller: App\Controller\NoteController::noteShow
+   methods: GET

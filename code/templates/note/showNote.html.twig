@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello NoteController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        ID:&nbsp;{{ id }},<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        Title:&nbsp;{{ title }},<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        Text:&nbsp;{{ text }},<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        Time created:
+        &nbsp;{{ timeCreated|format_datetime('full', 'short', locale='en') }},
+
+</div>
+{% endblock %}

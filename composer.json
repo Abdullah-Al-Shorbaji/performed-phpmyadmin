@@ -1,0 +1,6 @@
+{
+    "require": {
+        "json-mapper/symfony-bundle": "^2.2",
+        "symfony/form": "^6.1"
+    }
+}

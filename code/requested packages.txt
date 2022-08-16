@@ -1,0 +1,16 @@
+Package(s) requested:
+
+Linking to CSS, JavaScript and Image Assets:
+- composer require symfony/asset
+
+The "format_datetime" filter:
+composer require twig/intl-extra
+
+Automatically Fetching Objects (ParamConverter):
+composer require sensio/framework-extra-bundle
+
+Forms:
+composer require symfony/form
+
+Add support for "param converters":
+composer require sensio/framework-extra-bundle
